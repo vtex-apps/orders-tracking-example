@@ -1,5 +1,5 @@
-export async function allStates(
-  ctx: StatusChangeContext,
+export async function snoHandler(
+  ctx: NotificationContext,
   next: () => Promise<any>
 ) {
   console.log(ctx.body)

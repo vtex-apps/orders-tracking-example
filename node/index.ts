@@ -8,8 +8,7 @@ import {
 } from '@vtex/api'
 
 import { Clients } from './clients'
-import { allStates } from './middlewares/allStates'
-import { someStates } from './middlewares/someStates'
+import { snoHandler } from './middlewares/snoHandler'
 
 const TIMEOUT_MS = 800
 
@@ -38,14 +37,17 @@ const clients: ClientsConfig<Clients> = {
 declare global {
   type Context = ServiceContext<Clients, State>
 
-  interface StatusChangeContext extends EventContext<Clients> {
+  interface NotificationContext extends EventContext<Clients> {
     body: {
-      domain: string
-      orderId: string
-      currentState: string
-      lastState: string
-      currentChangeDate: string
-      lastChangeDate: string
+      type: string,
+      invoiceNumber: string,
+      trackingNumber: string,
+      trackingUrl: string,
+      courier: string,
+      orderId: string,
+      eventType: string,
+      eventId: string,
+      invoiceKey: string
     }
   }
   // The shape of our State object found in `ctx.state`. This is used as state bag to communicate between middlewares.
@@ -56,7 +58,6 @@ declare global {
 export default new Service({
   clients,
   events: {
-    allStates,
-    someStates,
+    snoHandler
   },
 })

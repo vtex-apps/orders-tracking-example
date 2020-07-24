@@ -1,9 +1,9 @@
 {
-  "name": "orders-feed-example",
+  "name": "orders-tracking-example",
   "vendor": "vtex",
   "version": "0.1.0",
-  "title": "Orders Feed Example",
-  "description": "Boilerplate app for receving order status events",
+  "title": "Orders Tracking Example",
+  "description": "Boilerplate app for receving order tracking notification events",
   "categories": [],
   "dependencies": {},
   "builders": {
