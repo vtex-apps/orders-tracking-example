@@ -9,6 +9,7 @@ import {
 
 import { Clients } from './clients'
 import { snoHandler } from './middlewares/snoHandler'
+import { EventType } from './typings/notification'
 
 const TIMEOUT_MS = 800
 
@@ -45,7 +46,7 @@ declare global {
       trackingUrl: string,
       courier: string,
       orderId: string,
-      eventType: string,
+      eventType: EventType,
       eventId: string,
       invoiceKey: string
     }
